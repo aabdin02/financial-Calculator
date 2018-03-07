@@ -38,17 +38,19 @@ public class PersonalLoan implements FinancialAppCalculator{
     }
     @Override
     public double calculateTotalPayment(){
-        double totoalPayment = 0;
+        double totoalPayment = Math.round((calulateMonthlyPayment()*12*loanTerm)
+                                           *100.0)/100.0;
         return totoalPayment;
     }
     @Override
     public double calculateInterest(){
-        double Interest = 0;
+        double Interest = Math.round((calculateTotalPayment()-loanAmount)*100)/100;
         return Interest;
     }
     @Override
     public double calculateAnnualPayment(){
-        double AnnualPayment = 0;
+        double AnnualPayment = Math.round((calulateMonthlyPayment()*12)
+                                           *100.0)/100.0;;
         return AnnualPayment;
     }
 
