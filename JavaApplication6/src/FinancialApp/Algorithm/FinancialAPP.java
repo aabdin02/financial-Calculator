@@ -16,6 +16,13 @@ public class FinancialAPP {
      */
     public static void main(String[] args) {
         
+        int p = 12000;
+        double i = 0.05;
+        int t = 5;
+        
+        PersonalLoan loan = new PersonalLoan(p, i, t);
+        System.out.println(loan.calulateMonthlyPayment());
+        
     }
     
 }
