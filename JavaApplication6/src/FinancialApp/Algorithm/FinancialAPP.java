@@ -21,8 +21,10 @@ public class FinancialAPP {
         int t = 5;
         
         PersonalLoan loan = new PersonalLoan(p, i, t);
-        System.out.println(loan.calulateMonthlyPayment());
-        
+        System.out.println("Monthly payment: "+loan.calulateMonthlyPayment());
+        System.out.println("  Total Payment: "+loan.calculateTotalPayment());
+        System.out.println(" Total Interest: "+loan.calculateInterest());
+        System.out.println("Annual  Payment: "+loan.calculateAnnualPayment());
     }
     
 }
