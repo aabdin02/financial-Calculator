@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="494.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="FinancialApp.Algorithm.UI.AppMainWindowController">
+   <children>
+      <GridPane layoutX="6.0" layoutY="75.0" prefHeight="324.0" prefWidth="488.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button maxHeight="200.0" maxWidth="200.0" mnemonicParsing="false" onAction="#calulatePersonalLoan" text="Personal Loan ">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button maxHeight="200.0" maxWidth="200.0" mnemonicParsing="false" onAction="#calulateCreditPayoff" text="Credit Card Payoff" wrapText="true" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button maxHeight="200.0" maxWidth="200.0" mnemonicParsing="false" onAction="#calulateAutoLoan" text="Auto Loan" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button maxHeight="200.0" maxWidth="200.0" mnemonicParsing="false" onAction="#calulateTVM" text="TVM" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button maxHeight="200.0" maxWidth="200.0" mnemonicParsing="false" onAction="#calulateTip" text="Tip" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button maxHeight="200.0" maxWidth="200.0" mnemonicParsing="false" onAction="#calulateDiscount" text="Discount" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+      <Label layoutX="186.0" layoutY="40.0" text="Financial-Calculator" />
+   </children>
+</AnchorPane>
