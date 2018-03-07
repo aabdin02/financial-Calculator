@@ -28,7 +28,8 @@ public class PersonalLoan implements FinancialAppCalculator{
     @Override
     public double calulateMonthlyPayment(){
         double ans = 12*(1-(Math.pow(1+(apr/12), -60)));
-        return loanAmount*apr/ans;
+        double roundAns = Math.round((loanAmount*apr/ans)*100.0)/100.0;
+        return roundAns;
     }
     @Override
     public double calculateAmortization(){
