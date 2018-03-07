@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication6;
+package FinancialApp.Algorithm;
 
 /**
  *
  * @author aabdin02
  */
-public class JavaApplication6 {
+public class FinancialAPP {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
     }
     
 }
