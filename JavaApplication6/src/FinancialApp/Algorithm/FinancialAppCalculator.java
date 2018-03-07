@@ -11,5 +11,8 @@ package FinancialApp.Algorithm;
  */
 public interface FinancialAppCalculator {
     public double calulateMonthlyPayment();
-    
+    public double calculateAmortization();
+    public double calculateTotalPayment();
+    public double calculateInterest();
+    public double calculateAnnualPayment();
 }
