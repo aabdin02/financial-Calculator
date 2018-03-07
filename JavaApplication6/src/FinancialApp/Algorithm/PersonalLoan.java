@@ -9,7 +9,7 @@ package FinancialApp.Algorithm;
  *
  * @author dawitabera
  */
-public class PersonalLoan {
+public class PersonalLoan implements FinancialAppCalculator{
     public int loanAmount;
     public double apr;
     public int loanTerm;
@@ -25,9 +25,30 @@ public class PersonalLoan {
         this.loanTerm = loanTerm;
     }
     
+    @Override
     public double calulateMonthlyPayment(){
         double ans = 12*(1-(Math.pow(1+(apr/12), -60)));
         return loanAmount*apr/ans;
+    }
+    @Override
+    public double calculateAmortization(){
+        double Amortization = 0;
+        return Amortization;
+    }
+    @Override
+    public double calculateTotalPayment(){
+        double totoalPayment = 0;
+        return totoalPayment;
+    }
+    @Override
+    public double calculateInterest(){
+        double Interest = 0;
+        return Interest;
+    }
+    @Override
+    public double calculateAnnualPayment(){
+        double AnnualPayment = 0;
+        return AnnualPayment;
     }
 
     public int getLoanAmount() {
