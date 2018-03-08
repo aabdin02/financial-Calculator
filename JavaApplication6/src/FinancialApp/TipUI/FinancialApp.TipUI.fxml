@@ -20,12 +20,12 @@
       <Text layoutX="90.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Split" />
       <TextField fx:id="showSplitLabel" layoutX="143.0" layoutY="81.0" prefHeight="27.0" prefWidth="71.0" />
       <Button layoutX="221.0" layoutY="45.0" mnemonicParsing="false" onAction="#reduceTipBy1" prefHeight="27.0" prefWidth="27.0" text="-" />
-      <Button fx:id="increaseTipAmountBy1" layoutX="263.0" layoutY="45.0" mnemonicParsing="false" onAction="#increaseTipBy1" prefHeight="27.0" prefWidth="27.0" text="+" />
-      <Button fx:id="reduceSplitBy1" layoutX="221.0" layoutY="81.0" mnemonicParsing="false" onAction="#reduceSplitBy1" prefHeight="27.0" prefWidth="27.0" text="-" />
-      <Button fx:id="increaseSplit1" layoutX="263.0" layoutY="81.0" mnemonicParsing="false" onAction="#increaseSplitBy1" prefHeight="27.0" prefWidth="27.0" text="+" />
+      <Button layoutX="263.0" layoutY="45.0" mnemonicParsing="false" onAction="#increaseTipBy1" prefHeight="27.0" prefWidth="27.0" text="+" />
+      <Button layoutX="221.0" layoutY="81.0" mnemonicParsing="false" onAction="#reduceSplitBy1" prefHeight="27.0" prefWidth="27.0" text="-" />
+      <Button layoutX="263.0" layoutY="81.0" mnemonicParsing="false" onAction="#increaseSplitBy1" prefHeight="27.0" prefWidth="27.0" text="+" />
       <VBox layoutX="31.0" layoutY="108.0" prefHeight="69.0" prefWidth="100.0">
          <children>
-            <Label fx:id="EmptyBox" />
+            <Label />
             <Label fx:id="taxAmountLabel" />
             <Label fx:id="TipAmount" />
             <Label fx:id="Payment" />

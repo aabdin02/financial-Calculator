@@ -5,7 +5,7 @@
  */
 package FinancialApp.TipUI;
 
-import java.awt.event.ActionListener;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -14,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -24,21 +23,11 @@ import javafx.scene.input.MouseEvent;
 public class TipUIController implements Initializable {
 
     @FXML
-    private TextField enterBillLabel;
-    @FXML
     private TextField enterTaxPercent;
     @FXML
     private TextField showTipPercent;
     @FXML
     private TextField showSplitLabel;
-    @FXML
-    private Button increaseTipAmountBy1;
-    @FXML
-    private Button reduceSplitBy1;
-    @FXML
-    private Button increaseSplit1;
-    @FXML
-    private Label EmptyBox;
     @FXML
     private Label taxAmountLabel;
     @FXML
@@ -67,6 +56,8 @@ public class TipUIController implements Initializable {
     private Button showReset;
     @FXML
     private Button showEmail;
+    @FXML
+    private TextField enterBillLabel;
     /**
      * Initializes the controller class.
      */
@@ -74,24 +65,22 @@ public class TipUIController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     } 
     
-    
-    
-    //Tax Amount = Same as the User Input
-    //Tip Amount = (Tip % * Bill)
-    //Payment = Tax Amount + TipAmount
+ 
     private double calculateTipAmount(){
-        double tipPercent = Double.parseDouble(showTipPercent.getText());
-        double bill = getBill();
-        double tipAmmount = tipPercent/100 * bill;
-        
-        return tipAmmount;
+         double tipAmount = 0.00;
+        try{
+            double tipPercent = Double.parseDouble(showTipPercent.getText());
+            double bill = getBill();
+            tipAmount = tipPercent/100 * bill;
+        }catch(NumberFormatException ex){
+            System.out.println("Wrong Number");
+        }
+        return tipAmount;
     }
-    private double getTaxAmount(){
-        //System.out.print(Double.parseDouble(TipAmount.getText()));
-        
+    private double getTaxAmount()throws NumberFormatException{    
         return getBill() *  (Double.parseDouble(enterTaxPercent.getText())/100);
     }
-    private double getBill(){
+    private double getBill() throws  NumberFormatException{
         return Double.parseDouble(enterBillLabel.getText());
     }
     private double calculatePayment(){
@@ -99,43 +88,47 @@ public class TipUIController implements Initializable {
     }
 
     @FXML
-    private void calculate(ActionEvent event) {
-         showTaxTotal.setText("Total ");
-         taxAmountLabel.setText("Tax Amount");
-         TipAmount.setText("Tip Amount");
-         Payment.setText(" Payment");
-         
-         showTaxTotal.setText("Total ");
-         String value = Double.toString(getTaxAmount());
-         showTaxAmount1.setText(value);
-        
-         String tip = Double.toString(calculateTipAmount());
-         showTaxAmount2.setText(tip);
-         
-         String payment = Double.toString(calculatePayment());
-         showTaxAmount3.setText(payment);
-         
-         showEach.setText("Each");
-         double noOfSplit = Double.parseDouble(showSplitLabel.getText());
-         double taxAmount = Double.parseDouble(showTaxAmount1.getText());
-         taxAmount = Math.round((taxAmount / noOfSplit) * 100.00)/100.00;
-         showEachAmount1.setText(Double.toString(taxAmount));
-         
-         taxAmount = Double.parseDouble(showTaxAmount2.getText());
-         taxAmount = Math.round((taxAmount / noOfSplit) * 100.00)/100.00;
-         showEachAmount2.setText(Double.toString(taxAmount));
-         
-         taxAmount = Double.parseDouble(showTaxAmount3.getText());
-         taxAmount = Math.round((taxAmount / noOfSplit)* 1.00);
-         showEachAmount3.setText(Double.toString(taxAmount));
-         
-         String valueText = "Round each payment up: each pays ";
-         valueText += "payment";
-         valueText += "; each tip is ";
-         valueText += "tipAmount, TipPercent";
-         
-         showRoundEachPaymentUp .setText(valueText );
-         
+    private void calculate(ActionEvent event)  {
+        try{
+            showTaxTotal.setText("Total ");
+            taxAmountLabel.setText("Tax Amount");
+            TipAmount.setText("Tip Amount");
+            Payment.setText(" Payment");
+
+            showTaxTotal.setText("Total ");
+            String value = Double.toString(getTaxAmount());
+            showTaxAmount1.setText(value);
+
+            String tip = Double.toString(Math.round(calculateTipAmount() * 100.00)/100.00);
+            showTaxAmount2.setText(tip);
+
+            String payment = Double.toString(calculatePayment());
+            showTaxAmount3.setText(payment);
+
+            showEach.setText("Each");
+            double noOfSplit = Double.parseDouble(showSplitLabel.getText());
+            double taxAmount = Double.parseDouble(showTaxAmount1.getText());
+            taxAmount = Math.round((taxAmount / noOfSplit) * 100.00)/100.00;
+            showEachAmount1.setText(Double.toString(taxAmount));
+
+            taxAmount = Double.parseDouble(showTaxAmount2.getText());
+            taxAmount = Math.round((taxAmount / noOfSplit) * 100.00)/100.00;
+            showEachAmount2.setText(Double.toString(taxAmount));
+
+            taxAmount = Double.parseDouble(showTaxAmount3.getText());
+            taxAmount = Math.round((taxAmount / noOfSplit)* 1.00);
+            showEachAmount3.setText(Double.toString(taxAmount));
+
+            String valueText = "Round each payment up: each pays ";
+            valueText += "payment";
+            valueText += "; each tip is ";
+            valueText += "tipAmount, TipPercent";
+
+            showRoundEachPaymentUp .setText(valueText );
+        }catch(NumberFormatException exception){
+            System.out.println("Enter A number");
+        }
+
     }
 
     @FXML
@@ -154,10 +147,8 @@ public class TipUIController implements Initializable {
     @FXML
     private void increaseTipBy1(ActionEvent event) {
         Double tip = Double.parseDouble(showTipPercent.getText());
-        tip -= 1;
-        if(tip < 0){
-            return;
-        }
+        tip += 1;
+        
         String tipValue = Double.toString(tip);
         showTipPercent.setText(tipValue);
         calculate(event);
@@ -179,9 +170,7 @@ public class TipUIController implements Initializable {
     private void increaseSplitBy1(ActionEvent event) {
         Double tip = Double.parseDouble(showSplitLabel.getText());
         tip += 1;
-        if(tip < 0){
-            return;
-        }
+
         String tipValue = Double.toString(tip);
         showSplitLabel.setText(tipValue);
         calculate(event);
