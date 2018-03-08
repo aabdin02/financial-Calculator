@@ -7,8 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="374.0" prefWidth="384.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="AutoLoanUI.AutoLoanUIController">
+<AnchorPane id="AnchorPane" prefHeight="375.0" prefWidth="362.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AutoLoanUI.AutoLoanUIController">
    <children>
       <Text layoutX="29.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle Price" />
       <Text layoutX="27.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Tax (%)" />
