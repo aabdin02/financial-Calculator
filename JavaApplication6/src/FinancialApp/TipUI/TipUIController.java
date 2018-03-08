@@ -134,7 +134,7 @@ public class TipUIController implements Initializable {
          valueText += "; each tip is ";
          valueText += "tipAmount, TipPercent";
          
-         increaseTipAmountBy1.setText(valueText );
+         showRoundEachPaymentUp .setText(valueText );
          
     }
 
