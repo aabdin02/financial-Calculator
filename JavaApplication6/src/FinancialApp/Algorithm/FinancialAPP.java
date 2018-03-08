@@ -25,6 +25,7 @@ public class FinancialAPP {
         System.out.println("  Total Payment: "+loan.calculateTotalPayment());
         System.out.println(" Total Interest: "+loan.calculateInterest());
         System.out.println("Annual  Payment: "+loan.calculateAnnualPayment());
+        loan.caluclateTotalAmortization();
     }
     
 }
