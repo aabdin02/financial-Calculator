@@ -10,6 +10,7 @@ package FinancialApp.Algorithm;
  * @author dawitabera
  */
 public class PersonalLoan implements FinancialAppCalculator{
+    private final int  initialLoan;
     public int loanAmount;
     public double apr;
     public int loanTerm;
@@ -23,18 +24,48 @@ public class PersonalLoan implements FinancialAppCalculator{
         this.loanAmount = loanAmount;
         this.apr = apr;
         this.loanTerm = loanTerm;
+        this.initialLoan = loanAmount;
     }
     
     @Override
     public double calulateMonthlyPayment(){
         double ans = 12*(1-(Math.pow(1+(apr/12), -60)));
-        double roundAns = Math.round((loanAmount*apr/ans)*100.0)/100.0;
+        double roundAns = Math.round((initialLoan*apr/ans)*100.00)/100.00;
         return roundAns;
+    }
+    public double calculatePrincipal(){
+        return Math.round((calulateMonthlyPayment() - calculateMonthlyInterest())*100.00)/100.00;
     }
     @Override
     public double calculateAmortization(){
-        double Amortization = 0;
-        return Amortization;
+        loanAmount -= calculatePrincipal();
+
+        return Math.round((loanAmount)*100.00)/100.00;
+    }
+    public void caluclateTotalAmortization(){
+        int month = 1;
+        while(loanAmount > 0){
+             
+             if(loanAmount  < calulateMonthlyPayment()){
+                 print(month, loanAmount, calculateMonthlyInterest(),
+                         calculatePrincipal(), 0);
+                 return;
+             }
+             print(month, calulateMonthlyPayment(), calculateMonthlyInterest(),
+                         calculatePrincipal(), calculateAmortization());
+             
+            month++;
+        }
+    } 
+    void print (int month, double monthlyPayment, double monthlyInterest,
+                double monthlyPrincipal, double remainingLoan){
+        
+         System.out.print((month + "\t"));
+                System.out.print(monthlyPayment+ "\t");
+                System.out.print(monthlyInterest + "\t");
+                System.out.print(monthlyPrincipal + "\t");
+                System.out.println(remainingLoan);
+               
     }
     @Override
     public double calculateTotalPayment(){
@@ -44,8 +75,11 @@ public class PersonalLoan implements FinancialAppCalculator{
     }
     @Override
     public double calculateInterest(){
-        double Interest = Math.round((calculateTotalPayment()-loanAmount)*100)/100;
+        double Interest = Math.round((calculateTotalPayment()-loanAmount)*100.00)/100.00;
         return Interest;
+    }
+    public double calculateMonthlyInterest(){
+        return Math.round((loanAmount * apr/12)*100.00)/100.00;
     }
     @Override
     public double calculateAnnualPayment(){
