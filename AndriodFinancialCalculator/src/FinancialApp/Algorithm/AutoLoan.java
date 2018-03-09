@@ -24,7 +24,7 @@ public class AutoLoan implements FinancialAppCalculator{
                      double feesTaxable, double taxFree, double downPayment,
                      double tradeInPayment,double amountOwedTradeIn, double interestRatePercent
                      , int loanTermInMonths){
-        this.vehiclePrice = vehPrice - tradeInPayment;
+        this.vehiclePrice = vehPrice - tradeInPayment + amountOwedTradeIn;
         this.downPayment = downPayment;
         this.salesTaxPercent = salesTaxPercent;
         this.feesTaxable = feesTaxable;
@@ -35,16 +35,17 @@ public class AutoLoan implements FinancialAppCalculator{
     
     }
     public double getTotalSalesTax(){
-        return (salesTaxPercent * vehiclePrice)/100;
+        return (salesTaxPercent * (getLoan() - taxFree))/100;
     }
     
     public double getMonthlySalesTax(){
+        System.err.println(getTotalSalesTax());
         return  ((1 + (1 - salesTaxPercent/100)) * getTotalSalesTax()
                 * (1 + salesTaxPercent/100)) / loanTermInMonths;
     }
     
     public double getLoan(){
-        return vehiclePrice - downPayment;
+        return vehiclePrice + feesTaxable - downPayment ;
     }
     @Override
     public double calulateMonthlyPayment() {
@@ -52,7 +53,7 @@ public class AutoLoan implements FinancialAppCalculator{
         double res = Math.pow(1 + i, loanTermInMonths) - 1;
         res  /= i * Math.pow(((1 + i)), loanTermInMonths);
         
-        return Math.round((((getLoan() / res )+ getMonthlySalesTax())*100.00)/100.00);
+        return ((getLoan() + taxFree)  / res )+ getMonthlySalesTax() ;
         
     }
 

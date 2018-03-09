@@ -20,10 +20,10 @@ public class FinancialAPP {
         double i = 0.05;
         int t = 5;
         
-            //vehPrice, saltesTaxPercent,feesTaxable,taxFree, downPayment,
-            //tradeInPayment, amountOwedTradeIn, interestRatePercent, loanTermMonths
-
-        AutoLoan loan = new AutoLoan(100000, 0.00, 2000.00,0.00, 0.00, 0.00,0.00,6, 360);
+            //1 vehPrice,  2 salesTaxPercent,3 feesTaxable,3taxFree, 4 downPayment,
+            //5 tradeInPayment, 6 amountOwedTradeIn, 7 interestRatePercent, 8 loanTermMonths
+                                    //1         2   3       3       4       5       6     7     8
+        AutoLoan loan = new AutoLoan(100000, 5.00, 2008.00, 5000.00, 2000.00, 2000.00,5000.00,6, 360);
         System.out.println("Monthly payment: "+loan.calulateMonthlyPayment());
 //        System.out.println("  Total Payment: "+loan.calculateTotalPayment());
 //        System.out.println(" Total Interest: "+loan.calculateInterest());
