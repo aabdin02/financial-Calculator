@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="375.0" prefWidth="362.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AutoLoanUI.AutoLoanUIController">
+<AnchorPane id="AnchorPane" prefHeight="451.0" prefWidth="357.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FinancialApp.AutoLoanUI.AutoLoanUIController">
    <children>
       <Text layoutX="29.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle Price" />
       <Text layoutX="27.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Tax (%)" />
@@ -18,18 +18,36 @@
       <Text layoutX="4.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount Owed on  Trade-in" textAlignment="RIGHT" wrappingWidth="109.41943359375" />
       <Text layoutX="36.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loan Term" />
       <Text layoutX="18.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Interest Rate (%)" />
-      <TextField layoutX="131.0" layoutY="9.0" />
-      <TextField layoutX="131.0" layoutY="41.0" />
-      <TextField layoutX="131.0" layoutY="75.0" />
-      <TextField layoutX="131.0" layoutY="111.0" />
-      <TextField layoutX="131.0" layoutY="149.0" />
-      <TextField layoutX="131.0" layoutY="183.0" />
-      <TextField layoutX="131.0" layoutY="217.0" />
-      <TextField layoutX="131.0" layoutY="248.0" />
-      <TextField layoutX="131.0" layoutY="281.0" />
+      <TextField fx:id="vehPrice" layoutX="131.0" layoutY="9.0" />
+      <TextField fx:id="salesTaxPercent" layoutX="131.0" layoutY="41.0" />
+      <TextField fx:id="feesTaxable" layoutX="131.0" layoutY="75.0" />
+      <TextField fx:id="taxFree" layoutX="131.0" layoutY="111.0" />
+      <TextField fx:id="downPayment" layoutX="131.0" layoutY="149.0" />
+      <TextField fx:id="tradeInPayment" layoutX="131.0" layoutY="183.0" />
+      <TextField fx:id="amountOwedTradeIn" layoutX="131.0" layoutY="217.0" />
+      <TextField fx:id="interestRatePercent" layoutX="131.0" layoutY="248.0" />
+      <TextField fx:id="loanTermMonths" layoutX="131.0" layoutY="281.0" />
       <Button layoutX="4.0" layoutY="314.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="109.0" text="Reset" />
       <Button layoutX="307.0" layoutY="183.0" mnemonicParsing="false" text="Note" />
-      <Button layoutX="131.0" layoutY="314.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="167.0" text="Calculate" />
+      <Button layoutX="131.0" layoutY="314.0" mnemonicParsing="false" onAction="#displayMonthSalesFinancedInterestTotalPayments" prefHeight="27.0" prefWidth="167.0" text="Calculate" />
       <Text layoutX="298.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="months" />
+      <VBox layoutX="13.0" layoutY="351.0" prefHeight="90.0" prefWidth="127.0">
+         <children>
+            <Text fx:id="monthly" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="117.0" />
+            <Text fx:id="sales" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="109.21875" />
+            <Text fx:id="amount" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="total" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="total1" strokeType="OUTSIDE" strokeWidth="0.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="140.0" layoutY="354.0" prefHeight="84.0" prefWidth="109.0">
+         <children>
+            <Text fx:id="payment" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="40.93603515625" />
+            <Text fx:id="tax" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="financed" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="interest" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="payment1" strokeType="OUTSIDE" strokeWidth="0.0" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
