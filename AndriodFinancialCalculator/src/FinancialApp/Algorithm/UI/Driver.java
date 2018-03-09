@@ -5,6 +5,7 @@
  */
 package FinancialApp.Algorithm.UI;
 
+import com.sun.scenario.effect.impl.prism.PrImage;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -36,7 +37,6 @@ public class Driver extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
     /**
      * @param args the command line arguments
      */
