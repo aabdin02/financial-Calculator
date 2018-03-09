@@ -104,8 +104,7 @@ public class AutoLoanUIController implements Initializable {
         
         
     }
-    //1 vehPrice,  2 salesTaxPercent,3 feesTaxable,3 taxFree, 4 downPayment,
-    //5 tradeInPayment, 6 amountOwedTradeIn, 7 interestRatePercent, 8 loanTermMonths
+   
     @FXML
     private void displayMonthSalesFinancedInterestTotalPayments(ActionEvent event) {
         calculatePayments();
@@ -115,10 +114,44 @@ public class AutoLoanUIController implements Initializable {
     
     private void displayText(){
         this.monthly.setText("Monthly Payment:");
-        this.sales.setText("            Sales Tax:");
-        this.amount.setText("Amount Financed:");
-        this.total.setText("     Total Interest: ");
-        this.total1.setText("    Total Payment:");
+        this.sales.setText("       Sales Tax:");
+        this.amount.setText(" Amount Financed:");
+        this.total.setText("      Total Interest: ");
+        this.total1.setText("     Total Payment:");
+    }
+ //1 vehPrice,  2 salesTaxPercent,3 feesTaxable,3 taxFree, 4 downPayment,
+    //5 tradeInPayment, 6 amountOwedTradeIn, 7 interestRatePercent, 8 loanTermMonths
+    @FXML
+    private void reset(ActionEvent event) {
+        setNull(payment);
+        setNull(tax);
+        setNull(financed);
+        setNull(interest);
+        setNull(payment1);
+        
+        setNull(monthly);
+        setNull(sales);
+        setNull(amount);
+        setNull(total);
+        setNull(total1);
+        
+        setNull(vehPrice);
+        setNull(salesTaxPercent);
+        setNull(feesTaxable);
+        setNull(taxFree);
+        setNull(downPayment);
+        setNull(tradeInPayment);
+        setNull(amountOwedTradeIn);
+        setNull(interestRatePercent);
+        setNull(loanTermMonths);
+        
+    }
+    
+    private void setNull(Text text){
+        text.setText(String.valueOf(""));
+    }
+    private void setNull(TextField textField){
+         textField.setText(String.valueOf(""));
     }
     
     
