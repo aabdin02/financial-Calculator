@@ -39,7 +39,6 @@ public class AutoLoan implements FinancialAppCalculator{
     }
     
     public double getMonthlySalesTax(){
-        System.err.println(getTotalSalesTax());
         return  ((1 + (1 - salesTaxPercent/100)) * getTotalSalesTax()
                 * (1 + salesTaxPercent/100)) / loanTermInMonths;
     }
@@ -64,17 +63,20 @@ public class AutoLoan implements FinancialAppCalculator{
 
     @Override
     public double calculateTotalPayment() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return calulateMonthlyPayment() * loanTermInMonths;
     }
 
+    public double getAmountFinanced(){
+        return getLoan() + getTotalSalesTax();
+    }
     @Override
     public double calculateInterest() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return  calculateTotalPayment() - getAmountFinanced();
     }
 
     @Override
     public double calculateAnnualPayment() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return calulateMonthlyPayment() * 12;
     }
     
 }
