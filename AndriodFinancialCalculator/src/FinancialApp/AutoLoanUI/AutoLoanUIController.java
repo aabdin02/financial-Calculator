@@ -13,7 +13,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import javafx.util.Pair;
 /**
@@ -79,8 +78,6 @@ public class AutoLoanUIController implements Initializable {
     }
     private void calculatePayments(){
         int loanMonths = 0;
-        
-        checkNull(vehPrice);
         
         if(loanTermMonths.getText().length() > 0){
             loanMonths = Integer.parseInt(loanTermMonths.getText());
