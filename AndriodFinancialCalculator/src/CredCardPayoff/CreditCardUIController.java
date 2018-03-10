@@ -7,7 +7,10 @@ package CredCardPayoff;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -16,6 +19,15 @@ import javafx.fxml.Initializable;
  */
 public class CreditCardUIController implements Initializable {
 
+    @FXML
+    private TextField balance;
+    @FXML
+    private TextField interestRatePr;
+    @FXML
+    private TextField monthlyPay;
+    @FXML
+    private TextField debtFree;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +35,13 @@ public class CreditCardUIController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void reset(ActionEvent event) {
+    }
+
+    @FXML
+    private void dispalyInterestPayment(ActionEvent event) {
+    }
     
 }
