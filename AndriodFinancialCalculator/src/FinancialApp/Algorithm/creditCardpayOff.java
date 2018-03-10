@@ -10,17 +10,17 @@ package FinancialApp.Algorithm;
  * @author aabdin02
  */
 public class creditCardpayOff {
-    private double balance;
-    private double interestRatePer;
-    private int monthlyPayment;
-    private int desiredMonthUntilDebtFree;
+    private final double balance;
+    private final double interestRatePer;
+    private final int monthlyPayment;
+    private final int desiredMonthUntilDebtFree;
     
-    public creditCardpayOff(double balance, double interestRatePer,
-                            int monthlyPayment, int desiredMonthUntilFree){
-        this.balance = balance;
-        this.interestRatePer = interestRatePer;
-        this.monthlyPayment = monthlyPayment;
-        this.desiredMonthUntilDebtFree = desiredMonthUntilFree;
+    public creditCardpayOff(double balanc, double interestRatePe,
+                            int monthlyPaymen, int desiredMonthUntilFre){
+        this.balance = balanc;
+        this.interestRatePer = interestRatePe;
+        this.monthlyPayment = monthlyPaymen;
+        this.desiredMonthUntilDebtFree = desiredMonthUntilFre;
     }
     
     public double calculateTotalInterest(){
