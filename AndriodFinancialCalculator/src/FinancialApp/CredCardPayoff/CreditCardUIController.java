@@ -51,12 +51,25 @@ public class CreditCardUIController implements Initializable {
         inject(totalPayment,"", totalPaymentAmount, -1);
     }
 
+    private double checkNull(TextField text){
+        if(text.getText().length() > 0){
+//            return 0;//Double.parseDouble(text.getText());
+        }
+        return 0.00;
+    }
+    
+    private int checkNullInt(TextField text){
+        if(text.getText().length() > 0){
+            return Integer.parseInt(text.getText());
+        }
+        return 0;
+    }
     @FXML
     private void dispalyInterestPayment(ActionEvent event) {
-        creditCard = new creditCardpayOff(Double.parseDouble(balance.getText())
-                                         ,Double.parseDouble(interestRatePr.getText()),
-                                          Integer.parseInt(monthlyPay.getText()),
-                                          Integer.parseInt(debtFree.getText()));
+        creditCard = new creditCardpayOff(checkNull(balance),
+                                          checkNull(interestRatePr),
+                                          checkNullInt(monthlyPay),
+                                          checkNullInt(debtFree));
         
         inject(totalInterest,"Total Interest", totalInterestPayment, creditCard.calculateTotalInterest());
         inject(totalPayment,"Total Payment", totalPaymentAmount, creditCard.calculateTotalPayment());
