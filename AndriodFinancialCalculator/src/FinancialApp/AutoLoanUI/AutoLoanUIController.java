@@ -13,7 +13,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-
+import java.util.AbstractList;
+import java.util.ArrayList;
+import javafx.util.Pair;
 /**
  * FXML Controller class
  *
@@ -152,6 +154,13 @@ public class AutoLoanUIController implements Initializable {
     }
     private void setNull(TextField textField){
          textField.setText(String.valueOf(""));
+    }
+
+    @FXML
+    private void displayAmortization(ActionEvent event) {
+        ArrayList<Pair<Double, Pair<Double, Double>>> array = new ArrayList<>();//autoLoan.populateAmount();
+        DrawAmortizationTable draw = new DrawAmortizationTable(array);
+        
     }
     
     
