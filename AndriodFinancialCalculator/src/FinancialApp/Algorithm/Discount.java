@@ -10,7 +10,7 @@ package FinancialApp.Algorithm;
  * @author aabdin02
  */
 public class Discount {
-    private  double regularPrice;
+    private  final double regularPrice;
     private final double salesTax;
     private double toPayPrice;
     private final double percent;
