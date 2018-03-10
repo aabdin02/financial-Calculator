@@ -24,7 +24,7 @@ public class creditCardpayOff {
     }
     
     public double calculateTotalInterest(){
-       return 1299.00; 
+       return interestRatePer * monthlyPayment; 
     }
     
     public double calculateTotalPayment(){
