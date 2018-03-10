@@ -28,31 +28,26 @@ public class DrawAmortizationTable {
         BorderPane border = new BorderPane();
         GridPane grid = new GridPane();
         ScrollPane scroll = new ScrollPane();
-        TableView<ArrayList<Pair <Double, Pair<Double, Double>>>> tableView = new TableView<>();
-        ObservableList<ArrayList<Pair <Double, Pair<Double, Double>>>> list = FXCollections.observableArrayList();
-        
+        TableView<Double> tableView = new TableView<>();
+//        ObservableList<ArrayList<Pair <Double, Pair<Double, Double>>>> list = FXCollections.observableArrayList();
+        ObservableList<Double> list = FXCollections.observableArrayList();
+
         TableColumn no_months = new TableColumn("No of Months");
         TableColumn amount    = new TableColumn("Monthly Payment");
         TableColumn monthlyI = new TableColumn("Monthly Interest");
         TableColumn monthlyPr    = new TableColumn("Principal");
         TableColumn balance = new TableColumn("Balance");
-        
-        Label labelTitle = new Label("Amortization Table");
         tableView.getColumns().addAll(no_months, amount, monthlyI, monthlyPr, balance);
-        list.add(table);
+        
+        list.add(4.00);
+        
         tableView.getItems().setAll(list);
 
-//        grid.add(labelTitle, 0, 0);
-//        grid.setMaxHeight(10);
-//        grid.add(new Label(), 0, 1);
-        
         scroll.setContent(tableView);
-//        border.setTop(grid);
         border.setTop(scroll);
-//        border.setBottom(grid);
         
         Stage primaryStage = new Stage();
-        Scene scene = new Scene(border, 1000, 1000);
+        Scene scene = new Scene(border, 450, 450);
 
         primaryStage.setScene(scene);
         primaryStage.show();
