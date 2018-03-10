@@ -97,6 +97,10 @@ public class PersonalLoanUIController implements Initializable {
         showMonthlyPayment.setText("");
         showTotalInterest.setText("");
         showTotalPayment.setText("");
+        monthlyPaymentLabel.setText("");
+        annualPaymentLabel.setText("");
+        totalInterestLabel.setText("");
+        totalPaymentLabel.setText("");
     }
 
     @FXML
