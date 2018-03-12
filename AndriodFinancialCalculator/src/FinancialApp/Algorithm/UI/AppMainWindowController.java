@@ -49,9 +49,6 @@ public class AppMainWindowController implements Initializable {
         loadWindow("/FinancialApp/AutoLoanUI/AutoLoanUI.fxml", "Auto Loan");
     }
 
-    @FXML
-    private void calulateTVM(ActionEvent event) {
-    }
 
     @FXML
     private void calulateTip(ActionEvent event) {
@@ -72,6 +69,11 @@ public class AppMainWindowController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AppMainWindowController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void calulateCurrency(ActionEvent event) {
+        loadWindow("/FinancialApp/Currency/currencyUI.fxml", "Currecy Convertor");
     }
     
 }
