@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="382.0" prefWidth="323.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FinancialApp.CurrencyDuplicate.CurrencyUIController">
+   <children>
+      <HBox layoutX="16.0" layoutY="32.0" prefHeight="42.0" prefWidth="283.0">
+         <children>
+            <Label prefHeight="42.0" prefWidth="43.0" text=" FROM" />
+            <ComboBox fx:id="fromListDisplay" prefHeight="42.0" prefWidth="76.0" />
+            <Label prefHeight="42.0" prefWidth="64.0" text="AMOUNT" />
+            <TextArea prefHeight="42.0" prefWidth="100.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="20.0" layoutY="96.0" prefHeight="42.0" prefWidth="283.0">
+         <children>
+            <Label prefHeight="42.0" prefWidth="43.0" text="    TO" />
+            <ComboBox onAction="#toList" prefHeight="42.0" prefWidth="76.0" />
+            <Label prefHeight="42.0" prefWidth="64.0" text="AMOUNT" />
+            <TextArea prefHeight="42.0" prefWidth="100.0" />
+         </children>
+      </HBox>
+      <Button layoutX="103.0" layoutY="238.0" mnemonicParsing="false" text="EXCHANGE" />
+      <Text layoutX="20.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EXCHANGE RATE: " textAlignment="RIGHT" wrappingWidth="181.0" />
+      <TextField layoutX="200.0" layoutY="159.0" prefHeight="42.0" prefWidth="100.0" />
+   </children>
+</AnchorPane>
