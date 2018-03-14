@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 /**
@@ -26,31 +27,31 @@ public class DrawAmortizationTable {
 
     public DrawAmortizationTable(ArrayList<Pair <Double, Pair<Double, Double>>> table) {
         BorderPane border = new BorderPane();
-        GridPane grid = new GridPane();
         ScrollPane scroll = new ScrollPane();
         TableView<Double> tableView = new TableView<>();
-//        ObservableList<ArrayList<Pair <Double, Pair<Double, Double>>>> list = FXCollections.observableArrayList();
-        ObservableList<Double> list = FXCollections.observableArrayList();
+        ObservableList<Double> list = FXCollections.observableArrayList(12.0, 13.0);
 
-        TableColumn no_months = new TableColumn("No of Months");
-        TableColumn amount    = new TableColumn("Monthly Payment");
-        TableColumn monthlyI = new TableColumn("Monthly Interest");
-        TableColumn monthlyPr    = new TableColumn("Principal");
-        TableColumn balance = new TableColumn("Balance");
-        tableView.getColumns().addAll(no_months, amount, monthlyI, monthlyPr, balance);
-        
-        list.add(4.00);
-        
-        tableView.getItems().setAll(list);
+        TableColumn no_months = new TableColumn("No of Months           ");
+//        TableColumn amount    = new TableColumn("Monthly Payment");
+//        TableColumn monthlyI = new TableColumn("Monthly Interest");
+//        TableColumn monthlyPr    = new TableColumn("Principal");
+//        TableColumn balance = new TableColumn("Balance");
+//        tableView.getColumns().addAll(no_months, amount, monthlyI, monthlyPr, balance);
+//        tableView.getColumns().addAll(no_months);
 
+        tableView.getColumns().addAll(no_months);
+        
         scroll.setContent(tableView);
         border.setTop(scroll);
-        
         Stage primaryStage = new Stage();
-        Scene scene = new Scene(border, 450, 450);
+        Scene scene = new Scene(border,500, 500);
 
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+    
+    public void draw(){
+        
     }
     
     

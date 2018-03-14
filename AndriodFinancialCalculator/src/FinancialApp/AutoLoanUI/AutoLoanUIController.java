@@ -157,7 +157,7 @@ public class AutoLoanUIController implements Initializable {
     private void displayAmortization(ActionEvent event) {
         ArrayList<Pair<Double, Pair<Double, Double>>> array = new ArrayList<>();//autoLoan.populateAmount();
         DrawAmortizationTable draw = new DrawAmortizationTable(array);
-        
+        draw.draw();
     }
     
     
