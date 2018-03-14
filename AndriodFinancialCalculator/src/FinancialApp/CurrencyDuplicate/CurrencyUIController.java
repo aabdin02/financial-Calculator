@@ -10,15 +10,13 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import com.google.gson.Gson;
 import java.net.HttpURLConnection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 /**
  * FXML Controller class
  *
@@ -26,20 +24,30 @@ import javafx.scene.control.ComboBox;
  */
 public class CurrencyUIController implements Initializable {
      static URL url;
-    private static String apiProver = "http://data.fixer.io/api/latest?access_key=5df0ce6206b1addd28e50cb012e0d715&format=1";
-    static CurrencyRate rates;
+    private String apiProver = "http://data.fixer.io/api/latest?access_key=5df0ce6206b1addd28e50cb012e0d715&format=1";
+    CurrencyRate rates;
     ObservableList<String> observableList;
     @FXML
-    private ComboBox<?> fromListDisplay;
+    private  ComboBox<String> fromListDisplay;
+    @FXML
+    private ComboBox<String> toListDisplay;
+    @FXML
+    private TextArea fromAmount;
+    @FXML
+    private TextField toAmount;
+    @FXML
+    private TextField exchangeRate;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         validateApiProver();
+        getCountries();
+
     }
     
-    public static void validateApiProver(){
+    public  void validateApiProver(){
         Gson gson = new Gson();
         
         try{
@@ -62,27 +70,29 @@ public class CurrencyUIController implements Initializable {
         }
     }
     
-    public static void main(String [] args) throws  Exception{
-        validateApiProver();
-        System.out.println(rates.getRates().get("AFN"));
-    }
-
-    private void FromList(){
-        observableList = FXCollections.observableArrayList(rates.getRates().keySet());
-        ObservableList<String> fromList = FXCollections.observableArrayList() ;
-        Set set = rates.getRates().keySet();
-            Iterator iterator = set.iterator();
-            while (iterator.hasNext()) { 
-                Map.Entry MEntry = (Map.Entry)iterator.next();
-                fromList.addAll(MEntry.getKey().toString());
-            }
-            fromListDisplay.setItems(fromList);
-        
+   
+    private void getCountries(){
+       ObservableList<String> observable = FXCollections.observableArrayList(rates.getRates().keySet());
+       fromListDisplay.setItems(observable);
+       toListDisplay.setItems(observable);
     }
 
     @FXML
-    private void toList(ActionEvent event) {
+    private void getExchange(ActionEvent event) {
+        double from = rates.getRates().get(fromListDisplay.getValue());
+        double to = rates.getRates().get(toListDisplay.getValue());
+        
+        double exchangeRate = (from * (Double.parseDouble(fromAmount.getText())));
+        
+        this.exchangeRate.setText(Double.toString(exchangeRate));
+       
+        exchangeRate /= to;
+        
+        this.toAmount.setText(Double.toString(exchangeRate));
+
+        
     }
+
 
     
     
